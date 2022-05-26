@@ -52,7 +52,7 @@ RSpec.describe "Posts", type: :request do
       post "/posts", params: req_payload
       payload = JSON.parse(response.body)
       expect(payload).to_not be_empty
-      expect(payload["id"]).to_not be_empty
+      expect(payload["id"]).to_not be_nil
       expect(response).to have_http_status(:created)
     end
     
@@ -76,7 +76,7 @@ RSpec.describe "Posts", type: :request do
   describe "PUT /posts/{id}" do
     let!(:article) { create(:post) }
     
-    it "should create a post" do
+    it "should update a post" do
       req_payload = {
         post: {
           title: "Titulo",
