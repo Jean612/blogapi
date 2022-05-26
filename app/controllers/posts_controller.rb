@@ -10,4 +10,6 @@ class PostsController < ApplicationController
     
     render json: @post, status: :ok
   end
+  
+  def
 end
